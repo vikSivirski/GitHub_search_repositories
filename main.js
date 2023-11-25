@@ -1,24 +1,40 @@
 (() => {
-    const container = document.querySelector('.container');
+    class View {
+        constructor() {
+            this.app = document.querySelector('.container');
+            this.form = this.createElement('form', 'search-form');
+            this.input = this.createElement('input', 'search-form__input');
 
-    function createDomElement(element, text = undefined, elementClass = undefined, parent = container) {
-        const domElement = document.createElement(element);
+            this.usersList = this.createElement('ul', 'users', 'list-reset');
+            this.user = this.createElement('li');
 
-        if(text !== undefined) domElement.textContent = text;
-        if(elementClass !== undefined) domElement.classList.add(elementClass);
-
-        if(parent !== container) {
-            parent.appendChild(domElement);
-            container.appendChild(parent);
+            this.form.appendChild(this.input);
+            this.app.appendChild(this.form);
+            this.app.appendChild(this.usersList);
         }
 
-        parent.appendChild(domElement)
+        createElement(elementTag, ...elementClass) {
+            const element = document.createElement(elementTag);
+            const classes = [...elementClass]
+            if(elementClass) {
+                classes.forEach((el) => {
+                    element.classList.add(el);
+                })
+            }
+
+            return element;
+        }
     }
 
-    createDomElement('h1', 'Тест', 'title');
-    createDomElement(
-        'p', 
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus tempore iure quia, reiciendis nihil hic ut pariatur sunt aspernatur, neque nemo quod? Laudantium doloribus aliquid veritatis animi voluptatem voluptate.',
-        'text'
-    )
+    class Search {
+        constructor(view) {
+            this.view = view;
+
+            this.view.input.addEventListener('keyup', () => {
+                console.log(1)
+            })
+        }
+    }
+
+    new Search(new View());
 })()
