@@ -30,9 +30,16 @@
         constructor(view) {
             this.view = view;
 
-            this.view.input.addEventListener('keyup', () => {
-                console.log(1)
-            })
+            this.view.input.addEventListener('keyup', this.searchRepositories.bind(this));
+        }
+
+        async searchRepositories(){
+            return await fetch(`https://api.github.com/search/repositories?q=${this.view.input.value}`)
+                .then((res) => {
+                    if(res.ok) {
+                        res.json().then((res) => console.log(res))  
+                    }
+                })
         }
     }
 
