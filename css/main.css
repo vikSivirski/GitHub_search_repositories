@@ -7,3 +7,16 @@
     font-size: 48px;
     line-height: 56px;
 }
+
+.search-list__item {
+    padding: 4.5px 13px;
+    background-color: #E3E3E3;
+    border: 1px solid black;
+    font-size: 30px;
+    line-height: 35px;
+    transition: background-color .2s ease-in-out;
+}
+
+.search-list__item:hover {
+    background-color: #65CDF9;
+}
