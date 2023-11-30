@@ -8,6 +8,10 @@
     line-height: 56px;
 }
 
+.search-list {
+    margin-bottom: 45px;
+}
+
 .search-list__item {
     padding: 4.5px 13px;
     background-color: #E3E3E3;
@@ -19,4 +23,48 @@
 
 .search-list__item:hover {
     background-color: #65CDF9;
+}
+
+.repositories__item {
+    position: relative;
+    padding: 8px 17px;
+    font-size: 24px;
+    line-height: 28px;
+    border: 1px solid black;
+    background-color: #E27BEB;
+}
+
+.repositories__item-descr {
+    margin: 0;
+}
+
+.repositories__item-btn {
+    position: relative;
+    position: absolute;
+    top: 31px;
+    right: 34px;
+    width: 42px;
+    height: 42px;
+}
+
+.repositories__item-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -1px;
+    width: 50px;
+    height: 4px;
+    background-color: red;
+    transform: rotate(45deg) translateY(-50%);
+}
+
+.repositories__item-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    width: 50px;
+    height: 4px;
+    background-color: red;
+    transform: rotate(-45deg) translateY(-50%);
 }
